@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Niklas Wienecke - freiberuflicher Musiker</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/almond.min.css">
+  <link rel="stylesheet" href="css/simpleLightbox.min.css">
+</head>
+
+<body>
+  <main>
+    <section>
+      <h1>Niklas Wienecke</h1>
+      <h2>Willkommen auf meiner Website!</h2>
+    </section>
+    <section>
+      <img src="images/4.jpeg" class="circle-image pointer" alt="Ein Portrait von Niklas Wienecke" />
+      <div><small><a id="lightbox-open" class="pointer">mehr Fotos</a></small></div>
+    </section>
+    <section id="introduction">
+      <p>
+        Ich bin freiberuflicher Musiker aus Hannover und arrangiere, spiele, produziere und unterrichte Musik auf
+        diversen
+        Instrumenten.
+      </p>
+      <p>
+        Ich freue mich auf Ihre Anfrage.
+        <br />
+        <a href="mailto:contact@niklaswienecke.de">Schreiben Sie mir!</a>
+      </p>
+    </section>
+    <section>
+      <small><a id="imprint-open" class="pointer">Impressum</a></small>
+      <dialog id="imprint">
+        <h1>Impressum</h1>
+        <p>
+          Niklas Wienecke<br>
+          Ihmepassage 2<br>
+          30449 Hannover<br>
+        </p>
+        <button id="imprint-close">Schließen</button>
+      </dialog>
+    </section>
+  </main>
+
+  <script src="js/simpleLightbox.min.js"></script>
+  <script>
+    // Elements
+    const imprintOpenLink = document.querySelector('#imprint-open');
+    const imprintDialog = document.querySelector('dialog#imprint');
+    const imprintCloseButton = document.querySelector('#imprint-close')
+
+    const circleImage = document.querySelector('img.circle-image');
+    const lightboxOpen = document.querySelector('#lightbox-open');
+
+    // Imprint-Dialog
+    imprintOpenLink.addEventListener('click', () => {
+      imprintDialog.setAttribute('open', '')
+    })
+
+    imprintCloseButton.addEventListener('click', () => {
+      imprintDialog.removeAttribute('open');
+    })
+
+    // Lightbox
+    circleImage.addEventListener('click', openLightbox);
+    lightboxOpen.addEventListener('click', openLightbox);
+
+    function openLightbox() {
+      SimpleLightbox.open({
+        items: ['images/1.jpeg', 'images/2.jpeg', 'images/3.jpeg']
+      });
+    }
+  </script>
+</body>
+
+</html>
